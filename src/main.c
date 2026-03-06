@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     int fd;
     if (newFile)
     {
-        fd = create_database_file(filePath);
+        fd = create_db_file(filePath);
         if (create_db_header(fd, &header) == STATUS_ERROR)
         {
             printf("Failed to create database header\n");
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        fd = read_database_file(filePath);
+        fd = read_db_file(filePath);
         if (validate_db_header(fd, &header) == STATUS_ERROR)
         {
             printf("Failed to validate database header\n");

@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include "file.h"
 
-int create_database_file(char *filepath)
+int create_db_file(char *filepath)
 {
     int fd = open(filepath, O_RDONLY);
     if (fd != STATUS_ERROR)
@@ -25,7 +25,7 @@ int create_database_file(char *filepath)
     return fd;
 }
 
-int read_database_file(char *filepath)
+int read_db_file(char *filepath)
 {
     int fd = open(filepath, O_RDONLY);
     if (fd == STATUS_ERROR)
