@@ -77,7 +77,7 @@ int create_db_header(struct dbheader_t **headerOut)
     return STATUS_SUCCESS;
 }
 
-int output_file(int fd, struct dbheader_t *header)
+int output_file(int fd, struct dbheader_t *header, struct employee_t *employees)
 {
     if (fd < 0)
     {
