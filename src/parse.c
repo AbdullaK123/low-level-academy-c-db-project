@@ -58,6 +58,7 @@ int validate_db_header(int fd, struct dbheader_t **headerOut)
     }
 
     *headerOut = header;
+    return 0;
 }
 
 int create_db_header(int fd, struct dbheader_t **headerOut)
@@ -76,7 +77,7 @@ int create_db_header(int fd, struct dbheader_t **headerOut)
     return STATUS_SUCCESS;
 }
 
-void output_file(int fd, struct dbheader_t *header)
+int output_file(int fd, struct dbheader_t *header)
 {
     if (fd < 0)
     {
