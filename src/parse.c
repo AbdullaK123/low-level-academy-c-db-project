@@ -61,7 +61,7 @@ int validate_db_header(int fd, struct dbheader_t **headerOut)
     return 0;
 }
 
-int create_db_header(int fd, struct dbheader_t **headerOut)
+int create_db_header(struct dbheader_t **headerOut)
 {
     struct dbheader_t *header = calloc(1, sizeof(struct dbheader_t));
     if (header == NULL)
@@ -92,4 +92,5 @@ int output_file(int fd, struct dbheader_t *header)
 
     lseek(fd, 0, SEEK_SET);
     write(fd, header, sizeof(struct dbheader_t));
+    return 0;
 }
