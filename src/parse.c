@@ -2,6 +2,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <arpa/inet.h>
 
 int validate_db_header(int fd, struct dbheader_t **headerOut)
 {
@@ -13,7 +15,7 @@ int validate_db_header(int fd, struct dbheader_t **headerOut)
 
     struct dbheader_t *header = calloc(1, sizeof(struct dbheader_t));
 
-    if (header == -1)
+    if (header == NULL)
     {
         printf("Malloc failed to create db header\n");
         return STATUS_ERROR;
@@ -61,7 +63,7 @@ int validate_db_header(int fd, struct dbheader_t **headerOut)
 int create_db_header(int fd, struct dbheader_t **headerOut)
 {
     struct dbheader_t *header = calloc(1, sizeof(struct dbheader_t));
-    if (header == STATUS_ERROR)
+    if (header == NULL)
     {
         printf("Malloc failed to create database header.\n");
         return STATUS_ERROR;
